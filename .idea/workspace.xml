@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e122b811-1097-4068-9a90-6e02a4419be0" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/executor_agents/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/evaluate_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/interact_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/item_retrieval_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/searcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/task_interpreter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system_config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/Prompts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/thought_template.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2nUzG7usmznIcaK50scHPLtaWk5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Code-Agent/TAIRA/data/amazon_clothing&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Code-Agent\TAIRA\data\amazon_clothing" />
+      <recent name="E:\Code-Agent\TAIRA" />
+      <recent name="E:\Code-Agent\TAIRA\FlagEmbedding" />
+      <recent name="E:\Code-Agent\TAIRA\excutor_agents" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Code-Agent\TAIRA\models" />
+      <recent name="E:\Code-Agent\TAIRA\bge-m3" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="e122b811-1097-4068-9a90-6e02a4419be0" name="变更" comment="" />
+      <created>1729042343307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729042343307</updated>
+      <workItem from="1729042344629" duration="3977000" />
+      <workItem from="1729062462955" duration="7211000" />
+      <workItem from="1729094647703" duration="2426000" />
+      <workItem from="1729129137504" duration="135000" />
+      <workItem from="1729129295229" duration="2059000" />
+      <workItem from="1729152349085" duration="981000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
