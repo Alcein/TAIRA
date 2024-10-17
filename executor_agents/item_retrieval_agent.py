@@ -52,7 +52,7 @@ class ItemRetrievalAgent(Agent):
         if os.path.exists(self.embedding_file):
             self.project_embeddings = np.load(self.embedding_file)
         else:
-            model = BGEM3FlagModel('../multi_agent/bge-m3', use_fp16=True)
+            model = BGEM3FlagModel('BAAI/bge-m3', use_fp16=True)
             project_texts = self.df['project_info'].tolist()
             # Debugging information
             for text in project_texts:
@@ -82,7 +82,7 @@ class ItemRetrievalAgent(Agent):
         return structured_preferences
 
     def recommend_projects_with_bge_m3(self, user_query, top_n=500, initial_filter=100):
-        model = BGEM3FlagModel('../multi_agent/bge-m3', use_fp16=True)
+        model = BGEM3FlagModel('BAAI/bge-m3', use_fp16=True)
         base_type = user_query.split(";")[0].strip()
 
         base_type_embedding = model.encode([base_type], batch_size=1, max_length=8192)['dense_vecs']
