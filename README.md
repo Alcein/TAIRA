@@ -7,7 +7,7 @@ Set up a virtualenv and install the [pytorch](https://pytorch.org/get-started/pr
 ```bash
 pip install -r requirements.txt
 ```
-Our experiments have been tested on **Python 3.10.14**.
+Our experiments have been tested on **Python 3.12.7**.
 ## ⚙️ Configuration (`system_config.yaml`)
 
 Before running the program, you need to configure the `system_config.yaml` file based on your specific requirements.

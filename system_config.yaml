@@ -3,7 +3,7 @@ TOPN_ITEMS: 500
 TOPK_ITEMS: 10
 #DOMAIN: "amazon_clothing"
 #DOMAIN: "amazon_beauty"
-DOMAIN: "kdd22"
+DOMAIN: "amazon_music"
 
 MODEL: "gpt-4o-2024-08-06"
 #MODEL: "claude-3-5-sonnet-20240620"

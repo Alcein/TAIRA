@@ -51,7 +51,7 @@ class EvaluateAgent(Agent):
         ids = [item['id'] for item in answer['items']]
         product_title = ''
         product_description = ''
-        if self.domain == "kdd22":
+        if self.domain == "amazon_music":
             df = pd.read_parquet(self.domain_path + '/shopping_queries_dataset_products.parquet')
             product_rows = df[df['product_id'].isin(ids)]
 

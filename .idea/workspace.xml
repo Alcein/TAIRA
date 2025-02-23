@@ -5,21 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e122b811-1097-4068-9a90-6e02a4419be0" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/executor_agents/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/evaluate_agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/interact_agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/item_retrieval_agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/searcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/executor_agents/task_interpreter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system_config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/Prompts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/memory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/thought_template.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_beauty/metadata.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_beauty/query_data1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_beauty/user_profile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_clothing/knowledge1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_clothing/query_data1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_clothing/user_profile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_music/knowledge1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_music/metadata.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_music/query_data1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/amazon_music/user_profile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/executor_agents/pattern_creator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_simulate/evaluate_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/amazon_beauty/metadata.parquet" beforeDir="false" afterPath="$PROJECT_DIR$/data/amazon_clothing/metadata.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/amazon_beauty/query_data1.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/amazon_clothing/knowledge1.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/amazon_clothing/metadata.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/amazon_clothing/query_data1.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/kdd22/query_data1.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/executor_agents/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/executor_agents/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/executor_agents/evaluate_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/executor_agents/evaluate_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/executor_agents/item_retrieval_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/executor_agents/item_retrieval_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/executor_agents/searcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/executor_agents/searcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/system_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/Prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/Prompts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/thought_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/thought_template.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,38 +52,66 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Alcein"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Alcein/TAIRA.git",
+    "accountId": "0033e35a-489f-4e92-89c2-29037f96e94a"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2nUzG7usmznIcaK50scHPLtaWk5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Code-Agent/TAIRA/data/amazon_clothing&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/Codes/TAIRA/TAIRA",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Code-Agent\TAIRA\data\amazon_clothing" />
-      <recent name="E:\Code-Agent\TAIRA" />
-      <recent name="E:\Code-Agent\TAIRA\FlagEmbedding" />
-      <recent name="E:\Code-Agent\TAIRA\excutor_agents" />
+      <recent name="E:\Codes\TAIRA\TAIRA" />
+      <recent name="E:\Codes\TAIRA\TAIRA\utils" />
+      <recent name="E:\Codes\TAIRA\TAIRA\executor_agents" />
+      <recent name="E:\Codes\TAIRA\TAIRA\data\amazon_clothing" />
+      <recent name="E:\Codes\TAIRA\TAIRA\data\amazon_music" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Code-Agent\TAIRA\models" />
       <recent name="E:\Code-Agent\TAIRA\bge-m3" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.19416.19" />
+        <option value="bundled-python-sdk-337b0a7a993a-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.19416.19" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,6 +127,7 @@
       <workItem from="1729129137504" duration="135000" />
       <workItem from="1729129295229" duration="2059000" />
       <workItem from="1729152349085" duration="981000" />
+      <workItem from="1740304281009" duration="2589000" />
     </task>
     <servers />
   </component>

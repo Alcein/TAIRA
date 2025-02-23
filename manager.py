@@ -1,13 +1,11 @@
 import logging
 import re
 
-import torch
 import yaml
 
-from executor_agents.evaluate_agent import EvaluateAgent
+from user_simulate.evaluate_agent import EvaluateAgent
 from utils.task import get_completion
-from utils.memory import Memory
-from utils.Prompts import ONE_PLAN_PROMPT, BoT_AGENTS_INSTRUCTION, AGENTS_INSTRUCTION
+from utils.Prompts import BoT_AGENTS_INSTRUCTION, AGENTS_INSTRUCTION
 from utils.thought_template import thought_templates
 import json
 
@@ -23,19 +21,18 @@ def extract_braces_content(s):
 
 
 class Manager:
-    def __init__(self, memory, user_input, target_product, complements, targets, target_count, logger=None):
+    def __init__(self, memory, user_input, target_product, targets, target_count, preference, config, logger=None):
         self.turn = 0
         self.agents = {}
         self.memory = memory
         self.user_input = user_input
         self.target_product = target_product
         self.templates = thought_templates
-        self.complements = complements
         self.targets = targets
         self.target_count = target_count
+        self.preference = preference
         self.logger = logger or logging.getLogger(__name__)
-        with open('system_config.yaml') as f:
-            self.config = yaml.load(f, Loader=yaml.FullLoader)
+        self.config = config
         self.method = self.config['METHOD']
 
     def register_agent(self, agent):
@@ -50,12 +47,14 @@ class Manager:
             "You are good at analyzing user inquiry intent and planning tasks."
             "In addition, you are good at transferring the high-level thinking processes "
             "of previous successful experiences to current problems."
-            "Here are the available executor_agents and their functionalities:\n"
+            "Here are the available agents and their functionalities:\n"
             f"{BoT_AGENTS_INSTRUCTION}"
             # f"{AGENTS_INSTRUCTION}"
         )
         prompt = (
             f"The user's input is: \"{self.user_input}\". "
+            f"Additionally, you should consider the user's preferences: {self.preference}"
+            "If possible, you should try to satisfy user preferences(but not contradict the query)."
             "Based on the user's input, create a task plan in JSON format with sub-tasks."
             "\nThe output should be JSON format as follows:\n"
             "{ \n"
@@ -86,6 +85,11 @@ class Manager:
                 "You need to follow the following thinking template to complete the task. "
                 "This template is a high-level thinking process summarized from the successful experience of similar tasks:"
                 f"{template}"
+                "Among them, solution_description is the thinking mode at the level of ideas, "
+                "while thought_template is the thinking mode at the level of execution. "
+                "You need to judge whether this template is suitable for solving this problem. "
+                "If it is suitable, you should follow it. If it is not suitable, you can only get inspiration from "
+                "solution_description and imitate the mode of thought_template to solve the problem."
             )
 
         messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": prompt}]
@@ -106,7 +110,7 @@ class Manager:
             "You are good at analyzing user inquiry intent and planning tasks."
             "In addition, you are good at transferring the high-level thinking processes "
             "of previous successful experiences to current problems."
-            "Here are the available executor_agents and their functionalities:\n"
+            "Here are the available agents and their functionalities:\n"
             f"{BoT_AGENTS_INSTRUCTION}"
             "The following is the history of tasks executed so far: \n"
             f"{history}"
@@ -115,6 +119,8 @@ class Manager:
         )
         prompt = (
             f"Your plan goals are: \"{task}\". "
+            f"Additionally, you should consider the user's preferences: {self.preference}"
+            "If possible, you should try to satisfy user preferences.(but not contradict the query)"
             "Based on the user's input, previous plan and the execution history, "
             "generate a follow-up to the previous plan with sub-tasks in JSON format."
             "\nThe output should be JSON format as follows:\n"
@@ -144,6 +150,11 @@ class Manager:
                 "You need to continue to follow the following thinking template to complete the task. "
                 "This template is a high-level thinking process summarized from the successful experience of similar tasks:"
                 f"{template}"
+                "Among them, solution_description is the thinking mode at the level of ideas, "
+                "while thought_template is the thinking mode at the level of execution. "
+                "You need to judge whether this template is suitable for solving this problem. "
+                "If it is suitable, you should follow it. If it is not suitable, you can only get inspiration from "
+                "solution_description and imitate the mode of thought_template to solve the problem."
             )
         # print(sys_prompt, prompt)
 
@@ -158,15 +169,15 @@ class Manager:
 
     def delegate_task(self):
         self.logger.debug("user query: " + self.user_input)
-        evaluator = EvaluateAgent(self.memory, self.logger)
+        evaluator = EvaluateAgent(self.memory, self.logger, self.config)
         self.memory.add_input(self.user_input)
         if self.method == "TAIRA":
             self.logger.debug("choosing template...")
             chosen_number = self.select_template()  # 替换为你实际想要的索引
-            print(chosen_number)
-            chosen_number = int(re.findall(r'\{(\d+)\}', chosen_number)[-1]) + 1
-            # 提取对应的内容
             self.logger.debug("template_number:" + str(chosen_number))
+            chosen_number = int(re.findall(r'\{(\d+)\}', chosen_number)[-1])
+            # 提取对应的内容
+            # self.logger.debug("template_number:" + str(chosen_number))
             template_key = f"template_{chosen_number}"
             template = self.templates[template_key]
             solution_description = template['solution_description']
@@ -174,7 +185,7 @@ class Manager:
 
             # 拼接内容
             template = (
-                # f"solution_description: {solution_description}\n"
+                f"solution_description: {solution_description}\n"
                 f"thought_template: {thought_template}"
             )
 
@@ -186,6 +197,8 @@ class Manager:
         else:
             chosen_number = 0
             template = ''
+        # return 1, 1, 1, 1, chosen_number
+
         task_plan = self.plan_task(template)
         # print("Task Plan:", task_plan)
         plan = extract_braces_content(task_plan)
@@ -237,7 +250,8 @@ class Manager:
                 items = extract_braces_content(result)
                 rec_json = json.loads(items)
                 hit_rate, mrr, ndcg, fail_flag = evaluator.evaluate(self.user_input, rec_json, self.target_product,
-                                                                    self.complements, self.targets, self.target_count)
+                                                                    self.targets, self.target_count,
+                                                                    preference=self.preference)
                 if hit_rate == 0:
                     fail_flag = True
                 self.logger.debug('hit rate: ' + str(hit_rate))
@@ -312,8 +326,8 @@ class Manager:
     def select_template(self):
         history = self.memory.get_history()
         template_texts = [
-            f"template {index}: {template['task_description']}"  # 只保留 task_description，并加上序号
-            for index, template in enumerate(self.templates.values())
+            f"{key}: {template['task_description']}"  # 只保留 task_description，并加上序号
+            for key, template in thought_templates.items()
         ]
         combined_template_text = "\n".join(template_texts)
         # print(combined_template_text)
@@ -322,15 +336,18 @@ class Manager:
             "Here are some descriptions of successful experiences you can learn from:"
             f"{combined_template_text}"
         )
+        # print(sys_prompt)
         prompt = (
             f"The current user query is: \"{self.user_input}\". "
             "Please give the number of a template that you think is most similar to the current task. "
+            "First output reason. Then "
             "output the chosen number in an '{}', '{}' contains PURE number without any signs."
         )
 
         messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": prompt}]
+        self.logger.debug('messages: ' + str(messages))
         response = get_completion(messages)
         meta_query = response.strip()
-        if '{' not in meta_query:
-            meta_query = f'{{{meta_query}}}'
+        # if '{' not in meta_query:
+        #     meta_query = f'{{{meta_query}}}'
         return meta_query
