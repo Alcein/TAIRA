@@ -8,7 +8,7 @@ from numpy import average
 from pure_eval import Evaluator
 
 from utils.task import extract_braces_content
-from agents.agent import Agent
+from executor_agents.agent import Agent
 
 
 def calculate_mrr(ranked_items):
