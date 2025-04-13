@@ -11,22 +11,11 @@ model = config['MODEL']
 
 
 def get_completion(messages, llm=model, temperature=0):  # claude-3-5-sonnet-20240620 gpt-4o-2024-08-06 qwen-plus
-    if 'qwen' in llm:
-        client = OpenAI(
-            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-            api_key="sk-1f0acf1225cb4769b66f440394d14250"
-        )
-    else:
-        client = OpenAI(
-            # base_url="https://api.starteam.wang/v1",
-            base_url="https://api.chatanywhere.tech/v1",
-            # api_key="sk-lgO5N1o5LkB8kZ12Fc9071B9B2C0429cBdAe35Ae53351c66"
-            api_key="sk-MW7MscGqMlYiMP0vT0kMEYl2jRouOWjwwUyCXe7NBEeXBke4"
-        )
-    if llm == 'qwen-max':
-        tokens = 2000
-    else:
-        tokens = 5000
+    client = OpenAI(
+        base_url="",
+        api_key=""
+    )
+    tokens = 5000
     response = client.chat.completions.create(
         model=llm,
         messages=messages,
@@ -44,10 +33,8 @@ def get_completion(messages, llm=model, temperature=0):  # claude-3-5-sonnet-202
 def get_json(messages, json_format, llm=model, temperature=0):
 
     client = OpenAI(
-        base_url="https://api.starteam.wang/v1",
-        # base_url="https://api.chatanywhere.tech/v1",
-        api_key="sk-lgO5N1o5LkB8kZ12Fc9071B9B2C0429cBdAe35Ae53351c66"
-        # api_key="sk-MW7MscGqMlYiMP0vT0kMEYl2jRouOWjwwUyCXe7NBEeXBke4"
+        # base_url="",
+        # api_key=""
     )
 
     response = client.beta.chat.completions.parse(
