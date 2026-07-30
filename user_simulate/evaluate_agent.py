@@ -72,12 +72,12 @@ class EvaluateAgent(Agent):
         rec_desc = answer["recommendation target"]
 
         product_info_list = []
-        ids = [item['id'] for item in answer['items']]
+        ids = [str(item['id']) for item in answer['items']]
         product_title = ''
         product_description = ''
         df = pd.read_csv(self.domain_path + '/metadata.csv')
         df['id'] = df['id'].astype(str)
-        product_rows = df[df['id'].isin(ids)]
+        product_rows = df.set_index('id').loc[ids].reset_index()
         for _, row in product_rows.iterrows():
             product_title = row['title']
             product_description = row['category']
